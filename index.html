@@ -1,139 +1,81 @@
+<meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src http://127.0.0.1:5000;">
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
-    <link href="./styles.css" rel="stylesheet">
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' http://127.0.0.1:5000;">
+
+    <link rel="stylesheet" href="./styles.css">
     <title>Transfusion Forecast</title>
 </head>
-
 <body>
-    <div style="text-align:center">
-        <h1>Blood Prediction Tool (BPT)</h1>
-    </div>
+    <header>
+        <h1 class="text-center">Blood Prediction Tool (BPT)</h1>
+    </header>
 
     <form id="myForm">
-          <div class="radio-group">
-            <label for="sex">Sex:</label>
-            <input type="radio" id="male" name="sex" value="Male" required>
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="sex" value="Female" required>
-            <label for="female">Female</label>
-        </div>
+        <fieldset>
+            <legend>Personal Information</legend>
 
-        <div class="radio-group">
-            <label for="redo">Redo:</label>
-            <input type="radio" id="redoMale" name="redo" value="Male" required>
-            <label for="redoMale">Yes</label>
-            <input type="radio" id="redoFemale" name="redo" value="Female" required>
-            <label for="redoFemale">No</label>
-        </div>
+            <div class="radio-group">
+                <label for="sex">Sex:</label>
+                <input type="radio" id="male" name="sex" value="Male" required>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="sex" value="Female" required>
+                <label for="female">Female</label>
+            </div>
 
-        <div class="radio-group">
-            <label for="cpb">CPB:</label>
-            <input type="radio" id="cpbMale" name="cpb" value="Male" required>
-            <label for="cpbMale">Yes</label>
-            <input type="radio" id="cpbFemale" name="cpb" value="Female" required>
-            <label for="cpbFemale">No</label>
-        </div>
+            <div class="radio-group">
+                <label for="redo">Redo:</label>
+                <input type="radio" id="redoMale" name="redo" value="Male" required>
+                <label for="redoMale">Yes</label>
+                <input type="radio" id="redoFemale" name="redo" value="Female" required>
+                <label for="redoFemale">No</label>
+            </div>
+
+            <div class="radio-group">
+                <label for="cpb">CPB:</label>
+                <input type="radio" id="cpbMale" name="cpb" value="Male" required>
+                <label for="cpbMale">Yes</label>
+                <input type="radio" id="cpbFemale" name="cpb" value="Female" required>
+                <label for="cpbFemale">No</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Measurements</legend>
+
             <!-- Age Input -->
-            <div data-stale="false" width="581" class="element-container css-18zti8d e1tzin5v2">
-                <div class="stNumberInput" style="width: 581px;">
-                    <label aria-hidden="true" class="css-k3w14i effi0qh3">
-                        <div data-testid="stMarkdownContainer" class="css-q8sbsg e16nr0p34">
-                            <p>Age</p>
-                        </div>
-                    </label>
-                    <div class=" css-4mqiue e1jwn65y3">
-                        <div data-baseweb="input"
-                            class="st-cl st-b3 st-cm st-b8 st-cn st-co st-cp st-cq st-cr st-cs st-ct st-cu st-cv st-b1 st-c2 st-au st-ax st-cw st-cx st-ae st-af st-ag st-ah st-ai st-aj st-cy st-cz st-d0 st-d1 st-d2 st-d3 st-d4">
-                            <div data-baseweb="base-input"
-                                class="st-b3 st-b8 st-d5 st-b1 st-c2 st-ae st-af st-ag st-ah st-ai st-aj st-ce st-d2 st-cw st-cx"><input
-                                    aria-label="Age" aria-invalid="false" aria-required="false" autocomplete="on" inputmode="text" name=""
-                                    placeholder="" type="number" min="-Infinity" max="Infinity" step="0.01"
-                                    class="st-cl st-d6 st-cn st-co st-cp st-cq st-d7 st-d8 st-d9 st-da st-by st-b8 st-db st-dc st-dd st-de st-df st-dg st-dh st-di st-ae st-af st-ag st-dj st-ai st-aj st-ce st-dk st-dl"
-                                    value="0.00"></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="input-container">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" placeholder="Enter Age" step="0.01" required>
             </div>
 
             <!-- BSA Input -->
-            <div data-stale="false" width="581" class="element-container css-18zti8d e1tzin5v2">
-                <div class="stNumberInput" style="width: 581px;">
-                    <label aria-hidden="true" class="css-k3w14i effi0qh3">
-                        <div data-testid="stMarkdownContainer" class="css-q8sbsg e16nr0p34">
-                            <p>BSA</p>
-                        </div>
-                    </label>
-                    <div class=" css-4mqiue e1jwn65y3">
-                        <div data-baseweb="input"
-                            class="st-cl st-b3 st-cm st-b8 st-cn st-co st-cp st-cq st-cr st-cs st-ct st-cu st-cv st-b1 st-c2 st-au st-ax st-cw st-cx st-ae st-af st-ag st-ah st-ai st-aj st-cy st-cz st-d0 st-d1 st-d2 st-d3 st-d4">
-                            <div data-baseweb="base-input"
-                                class="st-b3 st-b8 st-d5 st-b1 st-c2 st-ae st-af st-ag st-ah st-ai st-aj st-ce st-d2 st-cw st-cx"><input
-                                    aria-label="BSA" aria-invalid="false" aria-required="false" autocomplete="on" inputmode="text" name=""
-                                    placeholder="" type="number" min="-Infinity" max="Infinity" step="0.01"
-                                    class="st-cl st-d6 st-cn st-co st-cp st-cq st-d7 st-d8 st-d9 st-da st-by st-b8 st-db st-dc st-dd st-de st-df st-dg st-dh st-di st-ae st-af st-ag st-dj st-ai st-aj st-ce st-dk st-dl"
-                                    value="0.00"></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="input-container">
+                <label for="bsa">BSA:</label>
+                <input type="number" id="bsa" name="bsa" placeholder="Enter BSA" step="0.01" required>
             </div>
 
             <!-- HB Input -->
-            <div data-stale="false" width="581" class="element-container css-18zti8d e1tzin5v2">
-                <div class="stNumberInput" style="width: 581px;">
-                    <label aria-hidden="true" class="css-k3w14i effi0qh3">
-                        <div data-testid="stMarkdownContainer" class="css-q8sbsg e16nr0p34">
-                            <p>HB</p>
-                        </div>
-                    </label>
-                    <div class=" css-4mqiue e1jwn65y3">
-                        <div data-baseweb="input"
-                            class="st-cl st-b3 st-cm st-b8 st-cn st-co st-cp st-cq st-cr st-cs st-ct st-cu st-cv st-b1 st-c2 st-au st-ax st-cw st-cx st-ae st-af st-ag st-ah st-ai st-aj st-cy st-cz st-d0 st-d1 st-d2 st-d3 st-d4">
-                            <div data-baseweb="base-input"
-                                class="st-b3 st-b8 st-d5 st-b1 st-c2 st-ae st-af st-ag st-ah st-ai st-aj st-ce st-d2 st-cw st-cx"><input
-                                    aria-label="HB" aria-invalid="false" aria-required="false" autocomplete="on" inputmode="text" name=""
-                                    placeholder="" type="number" min="-Infinity" max="Infinity" step="0.01"
-                                    class="st-cl st-d6 st-cn st-co st-cp st-cq st-d7 st-d8 st-d9 st-da st-by st-b8 st-db st-dc st-dd st-de st-df st-dg st-dh st-di st-ae st-af st-ag st-dj st-ai st-aj st-ce st-dk st-dl"
-                                    value="0.00"></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="input-container">
+                <label for="hb">HB:</label>
+                <input type="number" id="hb" name="hb" placeholder="Enter HB" step="0.01" required>
             </div>
+        </fieldset>
 
-            <button id="submit-btn" type="button" onclick="submitForm()">Submit</button>
+        <button id="submit-btn" type="button" disabled>Submit</button>
     </form>
+    <div id="resultado" class="text-center"></div>
 
-    <!-- Você pode também incluir outros arquivos de script necessários aqui -->
+
+    <!-- Result Display -->
+    <div id="result" class="text-center"></div>
+
+    <!-- You can also include other necessary script files here -->
     <script src="./renderer.js"></script>
-
-    <script>
-        const { ipcRenderer } = require('electron');
-
-        function submitForm() {
-            // Coletar dados do formulário como você fez anteriormente
-            // Certifique-se de definir as variáveis sex, redo, cpb, age, bsa e hb com os valores adequados.
-
-            if (/* Verifique se todos os campos estão preenchidos */) {
-                const formData = {
-                    sex: /* Valor do sexo */,
-                    redo: /* Valor de redo */,
-                    cpb: /* Valor de cpb */,
-                    age: /* Valor de age */,
-                    bsa: /* Valor de bsa */,
-                    hb: /* Valor de hb */,
-                };
-
-                ipcRenderer.send('form-submit', formData);
-            } else {
-                alert('Por favor, preencha todos os campos.');
-            }
-        }
-    </script>
 </body>
-
 </html>
