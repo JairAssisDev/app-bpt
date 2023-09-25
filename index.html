@@ -18,35 +18,35 @@
 
     <form id="myForm">
         <fieldset>
-            <legend>Personal Information</legend>
+            <legend>Informações pessoais</legend>
 
             <div class="radio-group">
-                <label for="sex">Sex:</label>
+                <label for="sex">Sexo:</label>
                 <input type="radio" id="male" name="sex" value="Male" required>
-                <label for="male">Male</label>
+                <label for="male">Masculino</label>
                 <input type="radio" id="female" name="sex" value="Female" required>
-                <label for="female">Female</label>
+                <label for="female">Feminino</label>
             </div>
 
             <div class="radio-group">
                 <label for="redo">Redo:</label>
                 <input type="radio" id="redoMale" name="redo" value="Male" required>
-                <label for="redoMale">Yes</label>
+                <label for="redoMale">Sim</label>
                 <input type="radio" id="redoFemale" name="redo" value="Female" required>
-                <label for="redoFemale">No</label>
+                <label for="redoFemale">Não</label>
             </div>
 
             <div class="radio-group">
                 <label for="cpb">CPB:</label>
                 <input type="radio" id="cpbMale" name="cpb" value="Male" required>
-                <label for="cpbMale">Yes</label>
+                <label for="cpbMale">Sim</label>
                 <input type="radio" id="cpbFemale" name="cpb" value="Female" required>
-                <label for="cpbFemale">No</label>
+                <label for="cpbFemale">Não</label>
             </div>
         </fieldset>
 
         <fieldset>
-            <legend>Measurements</legend>
+            <legend>Medidas</legend>
 
             <!-- Age Input -->
             <div class="input-container">
@@ -67,7 +67,8 @@
             </div>
         </fieldset>
 
-        <button id="submit-btn" type="button" disabled>Submit</button>
+        <button id="submit-btn" type="button" disabled>Enviar</button>
+        <button id="restart-button">Reiniciar</button>
     </form>
     <div id="resultado" class="text-center"></div>
 

@@ -1,19 +1,16 @@
-const { app, BrowserWindow } = require('electron');
-const path = require('path');
+const { app, BrowserWindow, ipcMain } = require('electron');
 
 let mainWindow;
 
 function createWindow() {
-  // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true, // Permitir a integração com Node.js (não é seguro)
+      nodeIntegration: true,
     },
   });
 
-  // Carrega o arquivo HTML local
   mainWindow.loadFile('index.html');
 }
 
@@ -27,4 +24,10 @@ app.whenReady().then(() => {
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit();
+});
+
+// Adicione esta parte para reiniciar a janela principal
+ipcMain.on('restart-app', () => {
+  mainWindow.close(); // Feche a janela atual
+  createWindow(); // Crie uma nova janela principal
 });

@@ -74,13 +74,10 @@ function fazerRequisicao() {
                 var resposta = JSON.parse(xhr.responseText);
                 
                 // Exiba a resposta na página
-                document.getElementById("resultado").innerHTML = "Previsão: " + resposta.prediction;
-            } else {
-                // Exiba uma mensagem de erro em caso de falha na requisição
-                alert("Ocorreu um erro ao fazer a solicitação.");
-            }
-        }
-    };
+                document.getElementById("resultado").innerHTML = "Previsão: " +
+                (resposta.prediction == true ? "O paciente vai precisar de transfusão" : "O paciente não vai precisar de transfusão");
+            }}
+  };
 
     // Converta os dados em JSON e envie a solicitação
     var jsonData = JSON.stringify(data);
