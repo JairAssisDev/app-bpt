@@ -1,0 +1,28 @@
+/* styles.css */
+label, input {
+    display: block;
+    margin-bottom: 10px;
+}
+#submit-btn {
+    margin-top: 20px;
+    display: block;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+#submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+.radio-group {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.radio-group label {
+    margin-right: 5px;
+}
+  
+/* Add styles here to customize the appearance of your app */

@@ -1,0 +1,82 @@
+<meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src http://127.0.0.1:5000;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' http://127.0.0.1:5000;">
+
+    <link rel="stylesheet" href="./styles.css">
+    <title>Transfusion Forecast</title>
+</head>
+<body>
+    <header>
+        <h1 class="text-center">Blood Prediction Tool (BPT)</h1>
+    </header>
+
+    <form id="myForm">
+        <fieldset>
+            <legend>Informações pessoais</legend>
+
+            <div class="radio-group">
+                <label for="sex">Sexo:</label>
+                <input type="radio" id="male" name="sex" value="Male" required>
+                <label for="male">Masculino</label>
+                <input type="radio" id="female" name="sex" value="Female" required>
+                <label for="female">Feminino</label>
+            </div>
+
+            <div class="radio-group">
+                <label for="redo">Redo:</label>
+                <input type="radio" id="redoMale" name="redo" value="Male" required>
+                <label for="redoMale">Sim</label>
+                <input type="radio" id="redoFemale" name="redo" value="Female" required>
+                <label for="redoFemale">Não</label>
+            </div>
+
+            <div class="radio-group">
+                <label for="cpb">CPB:</label>
+                <input type="radio" id="cpbMale" name="cpb" value="Male" required>
+                <label for="cpbMale">Sim</label>
+                <input type="radio" id="cpbFemale" name="cpb" value="Female" required>
+                <label for="cpbFemale">Não</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Medidas</legend>
+
+            <!-- Age Input -->
+            <div class="input-container">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" placeholder="Enter Age" step="0.01" required>
+            </div>
+
+            <!-- BSA Input -->
+            <div class="input-container">
+                <label for="bsa">BSA:</label>
+                <input type="number" id="bsa" name="bsa" placeholder="Enter BSA" step="0.01" required>
+            </div>
+
+            <!-- HB Input -->
+            <div class="input-container">
+                <label for="hb">HB:</label>
+                <input type="number" id="hb" name="hb" placeholder="Enter HB" step="0.01" required>
+            </div>
+        </fieldset>
+
+        <button id="submit-btn" type="button" disabled>Enviar</button>
+        <button id="restart-button">Reiniciar</button>
+    </form>
+    <div id="resultado" class="text-center"></div>
+
+
+    <!-- Result Display -->
+    <div id="result" class="text-center"></div>
+
+    <!-- You can also include other necessary script files here -->
+    <script src="./renderer.js"></script>
+</body>
+</html>
